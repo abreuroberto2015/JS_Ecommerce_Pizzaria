@@ -28,7 +28,7 @@ pizzaJson.map((item, index) => {
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex]
         });
 
-        c('.pizzaInfo--qty').innerHTML = modalQt;
+        c('.pizzaInfo--qt').innerHTML = modalQt;
 
         c('.pizzaWindowArea').style.opacity = 0;
         c('.pizzaWindowArea').style.display = 'flex';
@@ -38,4 +38,16 @@ pizzaJson.map((item, index) => {
     });
 
     c('.pizza-area').append(pizzaItem);
+});
+
+//  Eventos do MODAL
+
+function closeModal(){
+    c('.pizzaWindowArea').style.opacity = 0;
+    setTimeout(()=>{
+        c('.pizzaWindowArea').style.display = 'none';
+    }, 500);
+}
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item)=>{
+    item.addEventListener('click', closeModal);
 });
